@@ -1,0 +1,8 @@
+#inpackage: True
+with-expecter: True
+#testonly: True
+quiet: False
+packages:
+  devices/interfaces:
+    config:
+      all: true

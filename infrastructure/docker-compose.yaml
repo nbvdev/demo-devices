@@ -1,0 +1,25 @@
+services:
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "13306:3306"
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER_NAME}
+      MYSQL_PASSWORD: ${DB_USER_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - devices-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', '$$MYSQL_USER', '-p$$MYSQL_PASSWORD' ]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  devices-db:

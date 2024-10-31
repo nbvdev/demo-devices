@@ -1,0 +1,42 @@
+GET http://localhost:8080/v1/devices
+
+###
+
+GET http://localhost:8080/v1/devices/search?brand=bran
+
+###
+
+GET http://localhost:8080/v1/devices/1
+
+###
+
+POST http://localhost:8080/v1/devices
+
+{
+  "name": "device11",
+  "brand": "brand2"
+}
+###
+
+PATCH http://localhost:8080/v1/devices/3
+
+{
+  "name": "device2"
+}
+###
+
+PUT http://localhost:8080/v1/devices/3
+
+{
+  "name": "device2",
+  "brand": "brand2"
+}
+###
+
+DELETE http://localhost:8080/v1/devices/4
+
+###
+
+GET http://localhost:8080/v1/devices/search/?name=brand
+
+###
